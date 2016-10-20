@@ -32,7 +32,7 @@ public class Counter
         heads.increment();
         tails.increment();
 
-        //自动调用toString()
+        //call toString() automatically
         StdOut.println(heads + " " + tails);
         StdOut.println(heads.tally() + tails.tally());
     }
