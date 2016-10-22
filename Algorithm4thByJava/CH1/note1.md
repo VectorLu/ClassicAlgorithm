@@ -11,3 +11,4 @@ public void push(String s)
 public String pop()
 {return a[--N];}
 ```
+#### error
