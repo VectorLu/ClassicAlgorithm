@@ -1,5 +1,5 @@
 import edu.princeton.cs.algs4.StdDraw;
-import static java.lang.Math.*;
+import java.lang.Math.*;
 
 public class DrawFunction
 {
