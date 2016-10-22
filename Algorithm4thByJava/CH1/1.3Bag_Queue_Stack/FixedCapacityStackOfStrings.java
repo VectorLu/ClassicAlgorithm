@@ -1,7 +1,8 @@
+import edu.princeton.cs.algs4.*;
 public class FixedCapacityStackOfStrings
 {
     private int N;
-    private String a;
+    private String[] a;
 
     public FixedCapacityStackOfStrings(int cap)
     {a = new String[cap];}
@@ -24,7 +25,14 @@ public class FixedCapacityStackOfStrings
         while(!StdIn.isEmpty())
         {
             String item = StdIn.readString();
-            if ()
+            if (!item.equals("-"))
+            {s.push(item);}
+            else
+            {
+                if(!s.isEmpty())
+                {StdOut.print(s.pop()+" ");}
+            }
         }
+        StdOut.println("(" + s.size() + "left on stack)");
     }
 }
