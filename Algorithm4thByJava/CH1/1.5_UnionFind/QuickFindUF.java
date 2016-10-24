@@ -1,9 +1,11 @@
+import edu.princeton.cs.algs4.*;
+
 public class QuickFindUF
 {
     private int[] id;
     private int count;
 
-    public UF(int n)
+    public QuickFindUF(int n)
     {
         count = n;
         id = new int[n];
@@ -39,7 +41,7 @@ public class QuickFindUF
 
     public static void main(String[] args) {
         int n = StdIn.readInt(); // Read number of sites.
-        UF uf = new UF(n);
+        QuickFindUF uf = new QuickFindUF(n);
         while(!StdIn.isEmpty())
         {
             int p = StdIn.readInt();
