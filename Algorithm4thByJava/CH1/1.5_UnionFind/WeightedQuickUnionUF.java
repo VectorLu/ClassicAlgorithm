@@ -1,4 +1,4 @@
-import edu.princetion.cs.algs4.*;
+import edu.princeton.cs.algs4.*;
 public class WeightedQuickUnionUF
 {
     private int[] id;   // parent link(site indexed)
@@ -8,7 +8,9 @@ public class WeightedQuickUnionUF
     public WeightedQuickUnionUF(int n)
     {
         count = n;
-        id = new id[n];
+        id = new int[n];
+        size = new int[n];
+        
         for (int i = 0; i < n; i++)
         {id[i] = i;}
         for (int i = 0; i < n; i++)
