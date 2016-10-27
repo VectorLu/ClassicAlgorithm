@@ -1,3 +1,6 @@
+import java.util.Comparator;
+import edu.princeton.cs.algs4.*;
+
 public class SortCompare
 {
     public static double time(String alg, Comparable[] a)
@@ -34,7 +37,7 @@ public class SortCompare
         double t1 = timeRandomInput(alg1, N, T);
         double t2 = timeRandomInput(alg2, N, T);
 
-        StdOut.printf("For %d random Doubles\n  %s is", N, alg1);
+        StdOut.printf("For %d random Doubles\n  %s is ", N, alg1);
         StdOut.printf("%.1f times faster than %s\n", t1/t2, alg2);
     }
 }
