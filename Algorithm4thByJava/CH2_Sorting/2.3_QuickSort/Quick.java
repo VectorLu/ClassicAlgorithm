@@ -4,7 +4,7 @@ public class Quick
 {
     public static void sort(Comparable[] a)
     {
-        StdRandom.shffle(a);    // Eliminate dependence on input.
+        StdRandom.shuffle(a);    // Eliminate dependence on input.
         sort(a, 0, a.length-1);
     }
 
