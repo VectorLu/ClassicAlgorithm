@@ -16,7 +16,7 @@ public class Quick
         sort(a, j+1, hi);
     }
 
-    private static int Quick(Comparable[] a, int lo, int hi)
+    private static int partition(Comparable[] a, int lo, int hi)
     {   // Partition into a[lo..i-1], a[i], a[i+1, hi]
         int i = lo, j = hi+1; // left and right scan indices.
         Comparable v = a[lo]; // partitioning item
@@ -34,6 +34,6 @@ public class Quick
             exch(a, i, j);
         }
         exch(a, lo, j);     // Put v = a[j] into position.
-        return j;
+        return j;           // with a[lo..j-1] <= a[j] <= a[j+1..hi]
     }
 }
