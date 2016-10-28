@@ -4,7 +4,7 @@ public class Quick
 {
     public static void sort(Comparable[] a)
     {
-        StdRandom.shffle(a);    //Eliminate dependence on input.
+        StdRandom.shffle(a);    // Eliminate dependence on input.
         sort(a, 0, a.length-1);
     }
 
@@ -17,9 +17,23 @@ public class Quick
     }
 
     private static int Quick(Comparable[] a, int lo, int hi)
-    {   //Partition into a[lo..i-1], a[i], a[i+1, hi]
-        int i = lo, j = hi+1; //left and right scan indices.
-        
-
+    {   // Partition into a[lo..i-1], a[i], a[i+1, hi]
+        int i = lo, j = hi+1; // left and right scan indices.
+        Comparable v = a[lo]; // partitioning item
+        while(true)
+        {   // Scan right, scan left, check for scan complete, and exchange
+            while (less(a[++i], v))
+            {
+                if (i == hi) {break;}
+            }
+            while(less(v, a[--j]))
+            {
+                if (j == lo) {break;}
+            }
+            if (i >= j) {break;}
+            exch(a, i, j);
+        }
+        exch(a, lo, j);     // Put v = a[j] into position.
+        return j;
     }
 }
