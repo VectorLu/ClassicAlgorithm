@@ -59,7 +59,12 @@ public class MaxPQ<Key extends Comparable<Key>>
         while (2*k <= N)
         {
             int j = 2*k;
+
+            // If exchange is necessary,
+            // to ensure that the upping son node is
+            // larger than the other.
             if (j < N && less(j, j+1)) {j++;}
+
             if (!less(k, j)) {break;}
             exch(k, j);
             k = j;
