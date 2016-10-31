@@ -20,7 +20,7 @@ public class MaxPQ<Key extends Comparable<Key>>
 
     public void insert(Key v)
     {
-        pq[++N] == v;
+        pq[++N] = v;
         swim(N);
     }
 
@@ -35,12 +35,12 @@ public class MaxPQ<Key extends Comparable<Key>>
 
     private boolean less(int i, int j)
     {
-        return pq[i].compareTo(pq[j] < 0);
+        return pq[i].compareTo(pq[j]) < 0;
     }
 
     private void exch(int i, int j)
     {
-        key t = pq[i];
+        Key t = pq[i];
         pq[i] = pq[j];
         pq[j] = t;
     }
@@ -64,7 +64,7 @@ public class MaxPQ<Key extends Comparable<Key>>
             // ensure that the upping child node
             // is larger than the other.
             if (j < N && less(j, j+1)) {j++;}
-            
+
             if (!less(k, j)) {break;}
             exch(k, j);
             k = j;
