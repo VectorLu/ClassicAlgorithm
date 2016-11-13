@@ -5,6 +5,3 @@ Java 中，如果```+```的一个参数是一个字符串，那么Java会自动�
 #### Why?
 - Why study algorithms?
 - They may unlock the secrets of life and of the universe.
-
-
-    
