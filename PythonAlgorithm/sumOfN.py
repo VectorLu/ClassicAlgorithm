@@ -11,8 +11,5 @@ def sumOfN(n):
 
     return theSum, end-start
 
-def sumGauss(n):
-    
-
 for i in range(5):
     print('Sum is %d required %10.7f seconds' % sumOfN(10000))
