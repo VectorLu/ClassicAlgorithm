@@ -16,17 +16,12 @@ class Node:
         self.next = newNext
 
 
-class UnorderedLinkedList:
+class OrderedList:
     def __init__(self):
         self.head = None
 
     def isEmpty(self):
         return self.head == None
-
-    def add(self, item):
-        temp = Node(item)
-        temp.setNext(self.head)
-        self.head = temp
 
     def size(self):
         current = self.head
@@ -39,28 +34,34 @@ class UnorderedLinkedList:
     def search(self, item):
         current = self.head
         found = False
-        while current != None and not found:
+        stop = False
+        while current != None and not found and not stop:
             if current.getData() == item:
                 found = True
             else:
-                current = current.getNext
-
+                if current.getData() > item:
+                    stop = True
+                else:
+                    current = current.getNext()
         return found
 
-    def remove(self, item):
+    def add(self, item):
         current = self.head
         previous = None
-        found = False
-        while not found:
-            if current.getData() == item:
-                found = True
+        stop = False
+
+        while current != None and (not stop):
+            if current.getData() > item:
+                stop = True
             else:
                 previous = current
                 current = current.getNext()
 
+        temp = Node(item)
         if previous == None:
-            self.head = current.getNext()
+            temp.setNext(self.head)
+            self.head = temp
         else:
-            previous.setNext(current.getNext())
-
-myList = UnorderedLinkedList()
+            previous.setNext(temp)
+            temp.setNext(current)
+        
