@@ -73,3 +73,5 @@ def infixToPostfix(infixexpr):
         postfixList.append(opStack.pop())
 
     return ' '.join(postfixList)
+
+print(infixToPostfix("( A + B ) * ( C + D )"))
