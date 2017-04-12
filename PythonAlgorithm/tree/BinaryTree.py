@@ -32,7 +32,6 @@ class BinaryTree:
     def getRootVal(self):
         return self.key
 
-
 r = BinaryTree('a')
 print(r.getRootVal())
 print(r.getLeftChild())
