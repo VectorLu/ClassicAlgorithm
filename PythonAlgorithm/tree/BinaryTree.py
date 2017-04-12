@@ -1,3 +1,5 @@
+import operator
+
 class BinaryTree:
     def __init__(self, rootObj):
         self.key = rootObj
@@ -63,6 +65,20 @@ def postorderEval(tree):
             return opers[tree.getRootVal()](res1, res2)
         else:
             return tree.getRootVal()
+
+def inorder(tree):
+    if tree != None:
+        inorder(tree.getLeftChild())
+        print(tree.getRootVal())
+        inorder(tree.getRightChild())
+
+def printexp(tree):
+    sVal = ''
+    if tree:
+        sVal = '(' + printexp(tree.getLeftChild())
+        sVal = sVal + str(tree.getRootVal())
+        sVal = sval + printexp(tree.getRightChild())
+    return sVal
 
 r = BinaryTree('a')
 print(r.getRootVal())
