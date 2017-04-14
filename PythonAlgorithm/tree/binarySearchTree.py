@@ -155,3 +155,64 @@ class BinarySearchTree:
         else:
             if self.parent:
                 if self.isLeftChild():
+                    succ = self.parent
+                else:
+                    self.parent.rightChild = None
+                    succ = self.parent.findSuccessor()
+                    self.parent.rightChild = self
+        return succ
+
+    def findMin(self):
+        current = self
+        while current.hasLeftChild():
+            current = current.leftChild
+        return current
+
+    def remove(self, currentNode):
+        # leaf
+        if currentNode.isLeaf():
+            if currentNode.isLeftChild():
+                currentNode.parent.leftChild = None
+            else:
+                currentNode.parent.rightChild = None
+        # interior
+        elif currentNode.hasBothChildren():
+            succ = currentNode.findSuccessor()
+            succ.spliceOut()
+            currentNode.key = succ.key
+            currentNode.payload = succ.payload
+        # this node has one child
+        else:
+            if currentNode.hasLeftChild():
+                if currentNode.isLeftChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.leftChild
+                elif currentNode.isRightChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.rightChild = currentNode.leftChild
+                else:
+                    currentNode.replaceNodeData(currentNode.leftChild.key,
+                                        currentNode.leftChild.payload,
+                                        currentNode.leftChild.leftChild,
+                                        currentNode.leftChild.rightChild)
+            else:
+                if currentNode.isLeftChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.rightChild
+                elif currentNode.isRightChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNodeparent.rightChild = currentNode.rightChild
+                else:
+                    currentNode.replaceNodeData(currentNode.rightChild.key,
+                                        currentNode.rightChild.payload,
+                                        currentNode.rightChild.leftChild,
+                                        currentNode.rightChild.rightChild)
+
+mytree = BinarySearchTree()
+mytree[3]="red"
+mytree[4]="blue"
+mytree[6]="yellow"
+mytree[2]="at"
+
+print(mytree[6])
+print(mytree[2])
