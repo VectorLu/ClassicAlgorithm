@@ -203,6 +203,16 @@ class BinarySearchTree:
     def __delitem__(self, key):
         self.delete(key)
 
+    def __iter__(self):
+        if self:
+            if self.hasLeftChild():
+                for elem in self.leftChild:
+                    yield elem
+            yield self.key
+            if self.hasRightChild():
+                for elem in self.rightChild:
+                    yield elem
+
     def spliceOut(self):
         if self.isLeaf():
             if self.isLeftChild():
