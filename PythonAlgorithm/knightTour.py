@@ -32,20 +32,19 @@ def legalCoord(x, boardSize):
     else:
         return False
 
-def knightTour(n, path, u, limit):
-    u.setColor('gray')
-    path.append(u)
+def knightTour(n, path, v, limit):
+    v.setColor('gray')
+    path.append(v)
     if n < limit:
-        nbrList = list(u.getConections())
+        connectedL = list(v.getConections())
         i = 0
         done = False
-        while i < len(nbrList) and not done:
-            if nbrList[i].getColor() == 'white':
-                done = knightTour(n+1, path, nbrList[i], limit)
+        while i < len(connectedL) and not done:
+            if connectedL[i].getColor() == 'white':
+                done = knightTour(n+1, path, connectedL[i], limit)
             i += 1
-        # Prepare to backtrack
         if not done:
             path.pop()
             u.setColor('white')
     else:
-        done = True
+        return True
