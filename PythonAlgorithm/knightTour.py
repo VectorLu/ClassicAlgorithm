@@ -48,3 +48,15 @@ def knightTour(n, path, v, limit):
             u.setColor('white')
     else:
         return True
+
+def orderByAvail(n):
+    resList = []
+    for v in n.getConections():
+        if v.getColor() == 'white':
+            c = 0
+            for w in v.getConections():
+                if w.getColor() == 'white':
+                    c += 1
+            resList.append((c, v))
+    resList.sort(key=lambda x: x[0])
+    return [y[1] for y in resList]
